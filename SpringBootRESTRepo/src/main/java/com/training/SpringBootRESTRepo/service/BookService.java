@@ -1,4 +1,4 @@
-package com.training.SpringBootRESTRepo.entity;
+package com.training.SpringBootRESTRepo.service;
 
 import com.training.SpringBootRESTRepo.entity.Book;
 import org.springframework.stereotype.Component;

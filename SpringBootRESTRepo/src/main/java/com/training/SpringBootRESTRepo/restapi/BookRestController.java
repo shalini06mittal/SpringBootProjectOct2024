@@ -43,14 +43,15 @@ public class BookRestController {
 
     // http://localhost:8080/books?author=
     // GET
-    @GetMapping
+    @GetMapping(produces = {"application/json","application/xml"})
     public List<Book> getBooks (@RequestParam(required = false, defaultValue = "Kelly") String author){
         if(author.equalsIgnoreCase("all"))
             return this.bookService.getAllBooks();
         return  this.bookService.getBooksByAuthor(author);
     }
 
-    @PostMapping
+    @PostMapping(consumes = {"application/json","application/xml"},
+            produces = {"application/json","application/xml"})
     public ResponseEntity<Object> addBook(@RequestBody Book book){
         System.out.println("Book "+book);
         Map<String, Object> map = new HashMap<>();

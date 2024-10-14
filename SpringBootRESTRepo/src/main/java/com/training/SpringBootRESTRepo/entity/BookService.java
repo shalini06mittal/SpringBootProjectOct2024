@@ -47,7 +47,9 @@ public class BookService {
             if(bookList.get(i).getBookid() == id) {
                 bookList.remove(i);
                 return true; }
-        } throw new RuntimeException("Book with id "+id+" does not exist"); }
+        }
+        throw new RuntimeException("Book with id "+id+" does not exist");
+    }
     public List<Book> getBooksByAuthor(String author){
         List<Book> booksByAuthor = new ArrayList<>();
         for (Book ob : bookList){

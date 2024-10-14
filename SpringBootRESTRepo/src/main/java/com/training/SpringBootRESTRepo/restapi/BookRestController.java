@@ -3,10 +3,7 @@ package com.training.SpringBootRESTRepo.restapi;
 import com.training.SpringBootRESTRepo.entity.Book;
 import com.training.SpringBootRESTRepo.entity.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,6 +42,17 @@ public class BookRestController {
 
         return this.bookService.getAllBooks();
     }
+
+    @GetMapping("/{id}")
+    public Book getBoookById(@PathVariable Integer id){
+        System.out.println("Id "+id);
+        return this.bookService.getBookById(id);
+    }
+//    @GetMapping("/authors")
+//    public List<Book> getAuthors(){
+//
+//        return this.bookService.getAllBooks();
+//    }
     //POST
     @PostMapping
     public Book addBook(){

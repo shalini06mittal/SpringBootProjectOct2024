@@ -3,6 +3,8 @@ package com.training.SpringBootRESTRepo.restapi;
 import com.training.SpringBootRESTRepo.entity.Book;
 import com.training.SpringBootRESTRepo.entity.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,11 @@ import java.util.List;
  * http status code:
  */
 @RestController // @Controller + @ResponseBody
+/**
+ * /books
+ * CRUD
+ */
+@RequestMapping("/books")
 public class BookRestController {
     // Field Injection
     //@Autowired
@@ -32,9 +39,16 @@ public class BookRestController {
         this.bookService = bookService;
     }
 
-    @RequestMapping("/books")
+    // GET
+    @GetMapping
     public List<Book> getBooks(){
+
         return this.bookService.getAllBooks();
+    }
+    //POST
+    @PostMapping
+    public Book addBook(){
+        return new Book();
     }
 
     // http://localhost:8080/greet

@@ -1,6 +1,7 @@
 package com.training.SpringBootRESTRepo.service;
 
 import com.training.SpringBootRESTRepo.entity.Book;
+import com.training.SpringBootRESTRepo.exception.BookNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,10 @@ public class BookService {
         bookList.add( new Book( 4, "css", "kelly","Learn css for designing webpage", 130.0));
     }
     public long getTotalBookCount(){
-        return bookList.size(); }
+        return bookList.size();
+    }
     public List<Book> getAllBooks(){
+
         return bookList;
     }
     public Book addNewBook(Book book){
@@ -40,7 +43,7 @@ public class BookService {
                 bookList.set(i, book);
                 return book; }
         }
-        throw new RuntimeException("Book with id "+book.getBookid()+" does not exist");
+        throw new BookNotFoundException("cannot update as book with id "+book.getBookid()+" does not exist");
     }
     public boolean deleteBook(int id){
         for (int i = 0; i<bookList.size(); i++){
@@ -48,7 +51,7 @@ public class BookService {
                 bookList.remove(i);
                 return true; }
         }
-        throw new RuntimeException("Book with id "+id+" does not exist");
+        throw new BookNotFoundException("Cannot delets as book with id "+id+" does not exist");
     }
     public List<Book> getBooksByAuthor(String author){
         List<Book> booksByAuthor = new ArrayList<>();
@@ -60,7 +63,7 @@ public class BookService {
         for (Book ob : bookList) {
             if (ob.getBookid() == id) return ob;
         }
-        throw new RuntimeException("Book with id "+id+" does not exists");
+        throw new BookNotFoundException("Cannot fetch as book with id "+id+" does not exists");
 
 
     }

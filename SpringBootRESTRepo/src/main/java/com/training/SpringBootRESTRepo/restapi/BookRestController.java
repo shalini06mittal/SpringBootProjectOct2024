@@ -3,7 +3,9 @@ package com.training.SpringBootRESTRepo.restapi;
 import com.training.SpringBootRESTRepo.constants.AppConstants;
 import com.training.SpringBootRESTRepo.constants.Status;
 import com.training.SpringBootRESTRepo.entity.Book;
-import com.training.SpringBootRESTRepo.entity.BookService;
+import com.training.SpringBootRESTRepo.exception.BookNotFoundException;
+import com.training.SpringBootRESTRepo.service.BookService;
+import com.training.SpringBootRESTRepo.service.BookServiceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +20,24 @@ import java.util.Map;
  * http headers:
  * http status code:
  */
-@RestController // @Controller + @ResponseBody
+//@RestController // @Controller + @ResponseBody
 /**
  * /books
  * CRUD
  */
-@RequestMapping("/books")
+//@RequestMapping("/books")
 public class BookRestController {
     // Field Injection
     //@Autowired
     private BookService bookService;
+    private BookServiceRepo bookServiceRepo;
 
     //@Autowired
     public BookRestController(){//BookService bookService) {
         System.out.println("Book Rest Controller");
         //this.bookService = bookService;
     }
+
 
     @Autowired
     public void setBookService(BookService bookService) {
@@ -73,13 +77,12 @@ public class BookRestController {
             map.put(AppConstants.STATUS, Status.SUCCESS);
             map.put("book", bookService.updateBook(book));
             return ResponseEntity.ok(map);
-        } catch (RuntimeException e) {
+        } catch (BookNotFoundException e) {
             map.put(AppConstants.STATUS, Status.FAILURE);
             map.put("error", e.getMessage());
             return ResponseEntity.badRequest().body(map);
         }
     }
-
     @DeleteMapping ("/{id}")
     public ResponseEntity<Object> deleteBook(@PathVariable int id){
         Map<String, Object> map = new HashMap<>();

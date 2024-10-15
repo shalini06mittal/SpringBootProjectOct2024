@@ -1,2 +1,8 @@
-package com.training.SpringBootRESTRepo.exception;public class BookNotFoundException {
+package com.training.SpringBootRESTRepo.exception;
+
+public class BookNotFoundException extends  RuntimeException{
+
+    public BookNotFoundException(String message) {
+        super(message);
+    }
 }

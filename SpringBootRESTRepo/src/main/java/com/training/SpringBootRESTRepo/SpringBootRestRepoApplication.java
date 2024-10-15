@@ -1,6 +1,6 @@
 package com.training.SpringBootRESTRepo;
 
-import com.training.SpringBootRESTRepo.entity.BookService;
+import com.training.SpringBootRESTRepo.service.BookService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

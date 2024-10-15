@@ -11,16 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
-public class MyGlobalExceptionHandler {
-    @ExceptionHandler(BookNotFoundException.class)
-    public ResponseEntity<Object> handleRuntimeException(BookNotFoundException ex){
-        Map<String, Object> map = new HashMap<>();
-        map.put(AppConstants.STATUS, Status.FAILURE);
-        map.put("error",ex.getMessage());
-        return ResponseEntity.badRequest().body(map);
+public class MyGlobalExceptionHandler1 {
+    public MyGlobalExceptionHandler1() {
+        System.out.println("global exception handler 1");
     }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleException(Exception ex){
+        System.out.println("general exception");
+        System.out.println(ex.getMessage());
         Map<String, Object> map = new HashMap<>();
         map.put(AppConstants.STATUS, Status.FAILURE);
         map.put("error",ex.getMessage());

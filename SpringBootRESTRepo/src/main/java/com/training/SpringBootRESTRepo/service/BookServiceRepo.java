@@ -1,5 +1,6 @@
 package com.training.SpringBootRESTRepo.service;
 
+import com.training.SpringBootRESTRepo.dto.BookDTO;
 import com.training.SpringBootRESTRepo.entity.Book;
 import com.training.SpringBootRESTRepo.repo.BookRepo;
 import jakarta.persistence.EntityExistsException;
@@ -7,7 +8,9 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BookServiceRepo {
@@ -22,6 +25,19 @@ public class BookServiceRepo {
     }
     public List<Book> getAllBooks(){
         return bookRepo.findAll();
+    }
+
+    public List<BookDTO> getAllBooksV2(){
+
+         return bookRepo.findAll().stream()
+                 .map(book ->{
+                     BookDTO bookDTO = new BookDTO();
+                     bookDTO.setAuthor(book.getAuthor());
+                     bookDTO.setPrice(book.getPrice());
+                     bookDTO.setBookid(book.getBookid());
+                     bookDTO.setTitle(book.getTitle());
+                     return bookDTO;
+                 }).collect(Collectors.toList());
     }
     public Book addNewBook(Book book){
         if(bookRepo.existsById(book.getBookid()))

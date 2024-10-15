@@ -2,6 +2,7 @@ package com.training.SpringBootRESTRepo.restapi;
 
 import com.training.SpringBootRESTRepo.constants.AppConstants;
 import com.training.SpringBootRESTRepo.constants.Status;
+import com.training.SpringBootRESTRepo.dto.BookDTO;
 import com.training.SpringBootRESTRepo.entity.Book;
 import com.training.SpringBootRESTRepo.exception.BookNotFoundException;
 import com.training.SpringBootRESTRepo.service.BookService;

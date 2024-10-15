@@ -23,9 +23,9 @@ public class Wand {
     private String core;
     private String length;
 
-//    @OneToOne(mappedBy = "wand")
-//    @JsonIgnore
-//    private FictionalCharacter character;
+    @OneToOne(mappedBy = "wand")
+    @JsonIgnore
+    private FictionalCharacter character;
 
 
     public Wand(String wood, String core, String length) {

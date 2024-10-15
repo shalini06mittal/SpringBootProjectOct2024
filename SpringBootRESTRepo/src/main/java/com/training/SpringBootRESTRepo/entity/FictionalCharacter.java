@@ -24,7 +24,7 @@ public class FictionalCharacter {
     @Column(length = 150, nullable = false)
     private String house;
 
-    @OneToOne//(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="wandid")
     //@JsonIgnore() // REST API endpoints
     private Wand wand;

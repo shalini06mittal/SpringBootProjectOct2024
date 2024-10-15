@@ -29,7 +29,7 @@ public class CharacterController {
     @Autowired
     private CharacterService characterService;
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     public List<FictionalCharacter> getAllCharacters(@RequestParam(defaultValue = "all") String house){
         logger.info("GET All Characters for house {}", house);
         if(house.equals("all")) {
@@ -118,18 +118,18 @@ public class CharacterController {
             return ResponseEntity.badRequest().body(map);
         }
     }
-//    @GetMapping("/wand/{id}")
-//    public ResponseEntity<Object> getCharacterWithWandId(@PathVariable int id){
-//        Map<String, Object> map = new HashMap<>();
-//        try {
-//            map.put(AppConstants.STATUS, Status.SUCCESS);
-//            FictionalCharacter character= characterService.getCharacterByWandId(id);
-//            map.put("character",character);
-//            return ResponseEntity.ok(map);
-//        }catch (EntityNotFoundException e){
-//            map.put("error", e.getMessage());
-//            return ResponseEntity.badRequest().body(map);
-//        }
-//
-//    }
+    @GetMapping("/wand/{id}")
+    public ResponseEntity<Object> getCharacterWithWandId(@PathVariable int id){
+        Map<String, Object> map = new HashMap<>();
+        try {
+            map.put(AppConstants.STATUS, Status.SUCCESS);
+            FictionalCharacter character= characterService.getCharacterByWandId(id);
+            map.put("character",character);
+            return ResponseEntity.ok(map);
+        }catch (EntityNotFoundException e){
+            map.put("error", e.getMessage());
+            return ResponseEntity.badRequest().body(map);
+        }
+
+    }
 }

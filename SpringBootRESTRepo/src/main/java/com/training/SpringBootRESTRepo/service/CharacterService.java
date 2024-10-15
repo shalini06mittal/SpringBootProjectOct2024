@@ -82,10 +82,10 @@ public class CharacterService {
         return true;
     }
 
-//    public FictionalCharacter getCharacterByWandId(int wandid){
-//        if(!wandRepo.existsById(wandid))
-//            throw new EntityNotFoundException("cannot fetch as wand with id "+wandid+" does not exist");
-//        Wand wand = wandRepo.findById(wandid).get();
-//        return wand.getCharacter();
-//    }
+    public FictionalCharacter getCharacterByWandId(int wandid){
+        if(!wandRepo.existsById(wandid))
+            throw new EntityNotFoundException("cannot fetch as wand with id "+wandid+" does not exist");
+        Wand wand = wandRepo.findById(wandid).get();
+        return wand.getCharacter();
+    }
 }

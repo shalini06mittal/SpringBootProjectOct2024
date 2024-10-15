@@ -17,3 +17,11 @@ INSERT INTO fictional_character ( bio, house, name, imageurl,wandid) VALUES( 'In
 INSERT INTO fictional_character ( bio, house, name, imageurl,wandid) VALUES( 'Harrys loyal best friend, Ron is known for his humor, courage, and strategic thinking in chess and battles', 'Gryffindor', 'Ron Weasley', 'https://ik.imagekit.io/hpapi/ron.jpg',null);
 INSERT INTO fictional_character ( bio, house, name, imageurl,wandid) VALUES( 'The Keeper of Keys and Grounds at Hogwarts, Hagrid is known for his love of magical creatures and his loyalty to Dumbledore', 'Gryffindor', 'Rubeus Hagrid', 'https://ik.imagekit.io/hpapi/hagrid.png',6);
 
+INSERT INTO `customer` (`active`, `custid`, `email`, `name`, `password`, `phone`) VALUES
+(1, 1, 'ron@gmail.com', 'RON', 'abc123', '1212121212'),
+(1, 2, 'danny@gmail.com', 'Danny', 'dan123', '3434343434');
+
+INSERT INTO `invoice` (`amount`, `custid`, `invoicedate`, `invoiceid`, `created_at`, `deladdress`) VALUES
+(10000, 1, '2024-07-01', 1, '2024-07-31 17:03:59', 'address 1, street 1'),
+(25000, 2, '2024-07-10', 2, '2024-07-31 17:03:59', 'address 2 street 2'),
+(15000, 2, '2024-07-18', 3, '2024-07-31 17:04:32', 'some another address');

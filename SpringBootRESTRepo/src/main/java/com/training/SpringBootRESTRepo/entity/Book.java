@@ -1,6 +1,10 @@
 package com.training.SpringBootRESTRepo.entity;
 
+
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +21,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookid;
     @Column(unique = true, nullable = false, length = 100)
+
     private String title;
     private String author;
     @Column(name="description")

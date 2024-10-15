@@ -6,6 +6,7 @@ import com.training.SpringBootRESTRepo.entity.Book;
 import com.training.SpringBootRESTRepo.exception.BookNotFoundException;
 import com.training.SpringBootRESTRepo.service.BookService;
 import com.training.SpringBootRESTRepo.service.BookServiceRepo;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class BookRestController {
 
     @PostMapping(consumes = {"application/json","application/xml"},
             produces = {"application/json","application/xml"})
-    public ResponseEntity<Object> addBook(@RequestBody Book book){
+    public ResponseEntity<Object> addBook(@Valid @RequestBody Book book){
         System.out.println("Book "+book);
         Map<String, Object> map = new HashMap<>();
         try {

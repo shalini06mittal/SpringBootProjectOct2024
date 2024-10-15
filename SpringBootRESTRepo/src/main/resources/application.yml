@@ -11,6 +11,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    defer-datasource-initialization: true
+
+#  sql:
+#    init:
+#      mode: ALWAYS
+#      data-locations: classpath:data-test.sql
   output:
     ansi:
       enabled: ALWAYS
@@ -19,3 +25,6 @@ spring:
       enabled: true
 server:
   port: 8081
+
+#spring.jpa.defer-datasource-initialization=true
+#spring.sql.init.mode= ALWAYS

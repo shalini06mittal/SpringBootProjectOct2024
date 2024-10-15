@@ -39,7 +39,7 @@ public class BookServiceRepo {
         return true;
     }
     public List<Book> getBooksByAuthor(String author){
-        return null;
+        return this.bookRepo.findAllByAuthor(author);
     }
 
     public Book getBookById(int id){

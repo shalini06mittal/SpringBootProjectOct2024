@@ -23,8 +23,13 @@ spring:
   h2:
     console:
       enabled: true
+  profiles:
+    active:
+      - dev
 server:
   port: 8081
 
+message: hello from default
 #spring.jpa.defer-datasource-initialization=true
 #spring.sql.init.mode= ALWAYS
+

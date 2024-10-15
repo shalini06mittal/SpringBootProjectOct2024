@@ -1,0 +1,5 @@
+org/example/profile/DefaultProfile.class
+org/example/profile/DevProfile.class
+org/example/profile/EnvProfile.class
+org/example/profile/ProductionProfile.class
+org/example/App.class

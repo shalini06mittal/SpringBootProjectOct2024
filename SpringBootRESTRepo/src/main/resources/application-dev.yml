@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:synechrondev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+
+#spring.jpa.defer-datasource-initialization=true
+#spring.sql.init.mode= ALWAYS

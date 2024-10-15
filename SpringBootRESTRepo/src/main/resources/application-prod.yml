@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:synechronprod
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+server:
+  port: 8082
+message: hello from prod
+#spring.jpa.defer-datasource-initialization=true
+#spring.sql.init.mode= ALWAYS

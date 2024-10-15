@@ -23,10 +23,12 @@ public class Book {
     @Column(unique = true, nullable = false, length = 100)
 
     private String title;
+    @NotNull(message = "Author cannot be empty")
     private String author;
     @Column(name="description")
     private String desc;
     @Column(columnDefinition = "decimal(10,2) default 100.0")
+    @Positive(message = "Price cannot be negative")
     private double price;
 
     public Book(String title, String author, String desc, double price) {

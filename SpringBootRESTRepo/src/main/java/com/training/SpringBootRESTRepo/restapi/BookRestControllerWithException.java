@@ -55,7 +55,7 @@ public class BookRestControllerWithException {
     }
     @PostMapping(consumes = {"application/json","application/xml"},
             produces = {"application/json","application/xml"})
-    public ResponseEntity<Object> addBook( @RequestBody Book book){
+    public ResponseEntity<Object> addBook(@Valid @RequestBody Book book){
         System.out.println("Book !! "+book);
         Map<String, Object> map = new HashMap<>();
             map.put(AppConstants.STATUS, Status.SUCCESS);

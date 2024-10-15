@@ -25,7 +25,7 @@ spring:
       enabled: true
   profiles:
     active:
-      - dev
+      - default
 server:
   port: 8081
 
@@ -33,3 +33,18 @@ message: hello from default
 #spring.jpa.defer-datasource-initialization=true
 #spring.sql.init.mode= ALWAYS
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+          - custom
+      base-path: /manage
+  endpoint:
+    health:
+      show-details: ALWAYS
+  server:
+    port: 9090

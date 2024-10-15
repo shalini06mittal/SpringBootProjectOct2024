@@ -19,5 +19,4 @@ public class BookDTO {
     private String author;
     private double price;
 
-
 }
